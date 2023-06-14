@@ -153,6 +153,83 @@ rootElement.innerHTML = `
 // })();
 </script>
 
+    
+<!--  HTML of the code     -->
+    <div class="container-fluid">
+
+<input type="search" id="searchBar">
+<button id="btn"> submit</button>
+<ul id="list">
+
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<!--   Js Error free program   -->
+    
+    (async function(){
+    await fetch("https://dummyjson.com/products")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data.products);
+        let searchBar = document.getElementById('searchBar')
+let btn = document.getElementById('btn')
+let list = document.getElementById('list')
+function displayResult(result){
+    list.innerHTML = "";
+    result.forEach(value => {
+        list.innerHTML += `
+        <li>
+            <h2> ${value.title} </h2>
+            <p> ${value.discription} <p>
+                </li>
+                `
+    });
+}
+
+function search(){
+ let query = searchBar.value
+//  console.log(query)
+
+let result = data.products.filter(function(recipe){
+  
+    return (recipe.title.toLowerCase().includes(query) || recipe.description.toLowerCase().includes(query))
+    
+});
+// console.log(result)
+displayResult(result)
+}
+btn.addEventListener('click', search);
+})
+})();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     
 </body>
