@@ -21,7 +21,9 @@
 
 <input type="search" id="searchBar">
 <button id="btn"> submit</button>
+<ul id="list">
 
+</ul>
 
     </div>
 <script>
@@ -29,29 +31,29 @@
      // n0-1
 (async function(){
     let rootElement = document.getElementById("rootElement")
-    await fetch('https://dummyjson.com/carts').then(response => response.json()).then(data => {console.log(data)
+    await fetch('https://dummyjson.com/products').then(response => response.json()).then(data => {console.log(data)
 
       for(let i = 0; i < data.length; i++){
-rootElement.innerHTML = `
+rootElement.innerHTML = ` 
 <div class="col-md-4 col-sm-6 col-lg-3">
 <div class="card">
   <div class="card-body">
-    <h3 class="card-title"> ${data[i].title} </h3>
-    <p class="card-text">  ${data[i].ingredients} </p>
+     <h3 class="card-title"> ${data.title} </h3>
+    <p class="card-text">  ${data.ingredients} </p>
    
   </div>
 </div>
 </div>
 
-`
-} 
-})
-})()
+ `
+    }
+ })
+})();
 
-   // n0-2
+//    // n0-2
 // (async function(){
 //     let rootElement = document.getElementById("rootElement")
-//     await fetch('https://dummyjson.com/products').then(response => response.json()).then(data => {console.log(data)
+//     await fetch('https://dummyjson.com/posts').then(response => response.json()).then(data => {console.log(data)
 //  //console.log(result)
 //         let searchBar = document.getElementById('searchBar')
 //   let btn = document.getElementById('btn')
@@ -63,7 +65,7 @@ rootElement.innerHTML = `
 // let result = data.forEach(recipe => {
 //     return recipe.filter(function(recipes){
 //         products.title.toLowerCase().includes(query)
-//     console.log(recipes)
+//     console.log(recipe)
 //     })
 //     console.log(result)
 // });
@@ -71,22 +73,22 @@ rootElement.innerHTML = `
 // btn.addEventListener('click', search)
 
 //    })
-//  })()
+//  })();
 
-     // n0-3
+//      // n0-3
 // (async function(){
 //     await fetch('https://dummyjson.com/products').then(response => response.json()).then(data => {
 // console.log(data)
 // data.products.forEach(e => {
-//     document.write(e.title + '<br>')
-// //     document.write(`
-// //         <img src="${e.images[0]}">
-// //    ` )
+//    // document.write(e.title + '<br>')
+//     document.write(`
+//        <img src="${e.images[0]}">
+//    ` )
 
 // });
 //     })
 
-//  })()
+//  })();
 
 
      // n0-4
@@ -95,13 +97,12 @@ rootElement.innerHTML = `
 //  console.log(data)
 // let rootElement = document.getElementById('rootElement')
 // data.products.forEach(e => {
-//     rootElement.innerHTML += `
-
+//     rootElement.innerHTML +=` 
 // <div class="col-md-4 col-sm-6 col-lg-3">
 //             <div class="card" >
-//                 <img src="${e.images[0]}" class="card-img-top" alt="..." height="200px">
 //                 <div class="card-body">
-//                   <h5 class="card-title"> ${e.title + brand}</h5>
+//                  <img src="${e.images[0]}"class="card-img-top" alt="...">
+//                   <h5 class="card-title"> ${e.title }</h5>
 //                   <p class="card-text"> ${e.description}</p>
 //                   <a href="#" class="btn btn-primary">${e.price}</a>
 //                 </div>
@@ -109,18 +110,20 @@ rootElement.innerHTML = `
 //             </div>
 //             `
 //         });
-
 //        })
-// })()
+//       })();
+
 
 //  n0-5
 
 // (async function(){
 //     await fetch("https://dummyjson.com/products")
-//     .then((response) => response.json())
+//   .then((response) => response.json())
 //     .then((data) => {
-//         console.log(data);
-  
+//         console.log(data.products);
+//         let searchBar = document.getElementById('searchBar')
+// let btn = document.getElementById('btn')
+// let list = document.getElementById('list')
 // function displayResult(result){
 //     list.innerHTML = "";
 //     result.forEach(value => {
@@ -129,28 +132,28 @@ rootElement.innerHTML = `
 //             <h2> ${value.title} </h2>
 //             <p> ${value.discription} <p>
 //                 </li>
-//                 `;
+//                 `
 //     });
 // }
-// let searchBar = document.getElementById('searchBar')
-// let btn = document.getElementById('btn')
-// let list = document.getElementById('list')
+
 // function search(){
 //  let query = searchBar.value
-//  //console.log(query)
+// //  console.log(query)
 
-// let result = data.filter(function(recipe){
-//     return 
-//      products.title.toLowerCase().includes(query) 
-//      products.description.jpin("").toLowerCase().includes(query)
-    
+// let result = data.products.filter(function(recipe){
+  
+//     return (recipe.title.toLowerCase().includes(query) || recipe.description.toLowerCase().includes(query))
+   
 // });
-// console.log(result)
+// // console.log(result)
 // displayResult(result)
 // }
 // btn.addEventListener('click', search);
 // })
 // })();
+
+
+
 </script>
 
 
